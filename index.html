@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>DESSA Tech - Salud Mental Accesible</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Plataforma integral que potencia la práctica profesional en salud mental, facilitando un espacio virtual de confianza entre el profesional y el consultante."/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="DESSA Tech - Salud Mental Accesible"/>
+  <meta property="og:description" content="Plataforma integral que potencia la práctica profesional en salud mental, facilitando un espacio virtual de confianza entre el profesional y el consultante."/>
+  <meta property="og:locale" content="es_LA"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="DESSA Tech - Salud Mental Accesible"/>
+  <meta name="twitter:description" content="Plataforma integral que potencia la práctica profesional en salud mental, facilitando un espacio virtual de confianza entre el profesional y el consultante."/>
+
+  <!-- Performance: preconnect para CDNs -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00776B",
+            "containerBg": "#B7CEC1",
+            "cardBg": "#F9F9F9",
+            "textDark": "#1F2E2D",
+            "textGray": "#4D4D4D",
+            "textMedium": "#444444",
+            "textLight": "#222222",
+            "borderCol": "#00776B",
+            "btnSecondary": "#E8E8E8",
+            "whiteCustom": "#ECEFEF",
+            "background-light": "#ECEFEF",
+            "background-dark": "#1F2E2D",
+          },
+          fontFamily: {
+            "display": ["Urbanist", "sans-serif"],
+            "sans": ["Urbanist", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-Thin.ttf') format('truetype'); font-weight: 100; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-ThinItalic.ttf') format('truetype'); font-weight: 100; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-ExtraLight.ttf') format('truetype'); font-weight: 200; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-Italic.ttf') format('truetype'); font-weight: 400; font-style: italic; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-SemiBold.ttf') format('truetype'); font-weight: 600; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-ExtraBold.ttf') format('truetype'); font-weight: 800; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-Black.ttf') format('truetype'); font-weight: 900; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Urbanist'; src: url('assets/fonts/Urbanist-BlackItalic.ttf') format('truetype'); font-weight: 900; font-style: italic; font-display: swap; }
+    body {
+      font-family: 'Urbanist', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark text-textDark dark:text-whiteCustom transition-colors duration-300">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 w-full border-b border-primary/10 bg-whiteCustom/80 backdrop-blur-md dark:bg-background-dark/80">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <img alt="DESSA Tech Logo" class="h-14 w-auto object-contain dark:hidden" src="assets/logo-invertido.svg"/>
+        <img alt="DESSA Tech Logo" class="h-14 w-auto object-contain hidden dark:block" src="assets/logo.svg"/>
+      </div>
+      <nav class="hidden md:flex items-center gap-10" aria-label="Navegación principal">
+        <a class="text-textMedium dark:text-whiteCustom/80 text-sm font-semibold hover:text-primary transition-colors" href="#soluciones">Soluciones</a>
+        <a class="text-textMedium dark:text-whiteCustom/80 text-sm font-semibold hover:text-primary transition-colors" href="#proposito">Propósito</a>
+        <a class="text-textMedium dark:text-whiteCustom/80 text-sm font-semibold hover:text-primary transition-colors" href="#precios">Precios</a>
+        <a class="text-textMedium dark:text-whiteCustom/80 text-sm font-semibold hover:text-primary transition-colors" href="#contacto">Contacto</a>
+      </nav>
+      <div class="flex items-center gap-4">
+        <button class="hidden sm:flex px-6 py-2.5 bg-btnSecondary text-textDark text-sm font-bold rounded-xl hover:bg-gray-200 transition-all">
+          Iniciar Sesión
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1">
+
+    <!-- HERO -->
+    <section class="relative overflow-hidden bg-containerBg px-6 py-16 md:py-24">
+      <div id="hero-visual" class="absolute inset-y-0 right-0 w-1/2 hidden lg:block" aria-hidden="true"></div>
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative z-10 flex flex-col gap-8">
+          <h1 class="text-[#2b2b2b] text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tight">
+            Una nueva generación de gestión clínica.
+          </h1>
+          <div class="flex flex-col gap-2">
+            <p class="text-[#2b2b2b] text-lg md:text-xl leading-relaxed max-w-xl text-justify hyphens-auto">DESSA integra administración, seguridad e inteligencia artificial en una plataforma creada para profesionales de la salud mental.
+            </p>
+            <p class="text-[#2b2b2b] text-lg md:text-xl leading-relaxed max-w-xl text-justify hyphens-auto">El entorno digital que organiza, acompaña y sostiene el trabajo. Pensada para la práctica profesional real.
+            </p>
+          </div>
+          <div class="flex flex-wrap gap-4 pt-0">
+            <a href="#contacto" class="flex h-14 items-center justify-center px-8 bg-primary text-whiteCustom text-lg font-bold rounded-xl shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all">
+              Hablar con el Equipo
+            </a>
+          </div>
+          <div class="flex items-center gap-4 pt-4">
+            <div class="flex -space-x-3" aria-hidden="true">
+              <img alt="" class="size-10 rounded-full border-2 border-containerBg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrIGGhozh8-oY3MJx9yhvTn8YwQrw87cCVgvxICCFHW-AkqtuYMV3NRpudUy_ObZRk4wBiHINWvkixWbzsx-v2SrtAhUUw5K-eFgdSDHzJ2NZNlRGd0rJfjcrK7_1Iv7WBhJjHiWSOOIPzegK7rVN9YBcSaVdn5Od4OahlX_peNG4TC87Y-3pmDWxVDi39aOWecSRL-_GbtMMjGlMufJhGk6EfM2YZ_1UpXK7O4bJOW4S5wf9Of_FNkso5MW9PFv9JK4SZPiA4HW0"/>
+              <img alt="" class="size-10 rounded-full border-2 border-containerBg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5X1ePjCiBF-WIhPc6__oPBzFOHKDujesWUcCUImWIXUv8qZwYRpBPsz7OGKwi8dAlaDEook1hE0atyXBu4xOjHG0hpW9TR3rUirvQwleg9HY5DdawNKMTDXb6mu3Y0tqxDvNEm-tAEQ2btqq8G5pH4o039VjthfTKsA26sKUmuxWtJoJRswoTSGoyLJPNmhb2wI3WWOWNZagydVcsYKlgqfp5_k9T7Cqbkc79AJHoO2n6BA-Ua21jvxb2hzCErYXLmV6yY0l0teI"/>
+              <img alt="" class="size-10 rounded-full border-2 border-containerBg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC1PDZcX8Lrqw0gV5ltNfhBufnnMGmeEq86MWQXvCULd7niI9kIVW1VHMomYBdHMhMhXMwSRnF6v3tRUn-jNqh4aH7sXpOKOLvbHVqD8B75Z8IlFLvlp_jWfW9-FVXbDwFGTPUUUuY6iDlCEN05uSCT-Qv5z50EX3cYbGxYcu3bwGzX6Imig97lGAG8ZwsJAGhhtdquzre_GX5g37q6MKDFSLPxDlBY7xhcKa7Zdr0Vg4it6mmeHQEAr3FXyQ044y74TqAbSHaMDs"/>
+            </div>
+            <p class="text-sm font-medium text-textMedium">Con la confianza de profesionales y consultantes</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROPÓSITO -->
+    <section class="py-24 px-6 bg-whiteCustom dark:bg-background-dark/50" id="proposito">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Nuestro Propósito</span>
+          <h2 class="text-textDark dark:text-whiteCustom text-3xl md:text-5xl font-black mt-4">Quiénes somos y qué nos mueve</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- MISIÓN -->
+          <div class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 shadow-lg shadow-black/5">
+            <div class="size-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-whiteCustom transition-colors text-primary">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">rocket_launch</span>
+            </div>
+            <h3 class="text-2xl font-bold text-textDark dark:text-whiteCustom mb-4">Misión</h3>
+            <p class="text-textGray dark:text-whiteCustom/70 leading-relaxed text-justify hyphens-auto">
+              Revolucionar la experiencia terapéutica, conectando la profundidad humana con la practicidad tecnológica. Ofrecemos una plataforma integral que asiste tanto a psicólogos como a consultantes, facilitando la gestión de citas, el seguimiento personalizado y el apoyo continuo a través de herramientas inteligentes, mejorando el bienestar emocional y mental de nuestra comunidad.
+            </p>
+          </div>
+          <!-- VISIÓN -->
+          <div class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 shadow-lg shadow-black/5">
+            <div class="size-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-whiteCustom transition-colors text-primary">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">visibility</span>
+            </div>
+            <h3 class="text-2xl font-bold text-textDark dark:text-whiteCustom mb-4">Visión</h3>
+            <p class="text-textGray dark:text-whiteCustom/70 leading-relaxed text-justify hyphens-auto">
+              Ser líderes globales en la innovación de la salud mental, creando un ecosistema donde la tecnología y la empatía se fusionan para ofrecer experiencias terapéuticas excepcionales y accesibles en cualquier momento y lugar. Un futuro donde la barrera entre la asistencia tecnológica y el cuidado humano desaparezca.
+            </p>
+          </div>
+          <!-- VALORES -->
+          <div class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 shadow-lg shadow-black/5">
+            <div class="size-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-whiteCustom transition-colors text-primary">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">favorite</span>
+            </div>
+            <h3 class="text-2xl font-bold text-textDark dark:text-whiteCustom mb-6">Valores</h3>
+            <ul class="flex flex-col gap-3">
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">favorite</span>
+                <span class="text-textGray dark:text-whiteCustom/70 text-sm font-medium">Empatía</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">handshake</span>
+                <span class="text-textGray dark:text-whiteCustom/70 text-sm font-medium">Respeto</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">group</span>
+                <span class="text-textGray dark:text-whiteCustom/70 text-sm font-medium">Colaboración</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">universal_local</span>
+                <span class="text-textGray dark:text-whiteCustom/70 text-sm font-medium">Accesibilidad</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">school</span>
+                <span class="text-textGray dark:text-whiteCustom/70 text-sm font-medium">Educación</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-base text-primary" aria-hidden="true">verified</span>
+                <span class="text-textGray dark:text-whiteCustom/70 text-sm font-medium">Responsabilidad</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPACIDADES / SOLUCIONES -->
+    <section class="py-24 px-6 bg-containerBg dark:bg-background-dark" id="soluciones">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-20 flex flex-col gap-4">
+          <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Capacidades</span>
+          <h2 class="text-textDark dark:text-whiteCustom text-4xl md:text-5xl font-black tracking-tight">Todo lo que necesitás en una sola plataforma</h2>
+          <p class="text-textGray dark:text-whiteCustom/70 text-lg">Diseñada para psicólogos y consultantes, DESSA centraliza tu práctica con herramientas pensadas para el bienestar.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- FUNCIONALIDAD -->
+          <div class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 flex flex-col gap-6">
+            <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-whiteCustom transition-colors">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">apps</span>
+            </div>
+            <div>
+              <h3 class="text-textDark dark:text-whiteCustom text-xl font-bold mb-2">Funcionalidad</h3>
+              <p class="text-textGray dark:text-whiteCustom/60 leading-relaxed text-justify hyphens-auto">Organizá los procesos clave de tu trabajo en una sola app: <strong class="text-textDark dark:text-whiteCustom/90 font-semibold">registro, seguimiento, planificación y administración</strong>.</p>
+            </div>
+            <div class="mt-auto flex items-center gap-2 text-primary font-bold text-sm cursor-pointer hover:underline">
+              Saber más <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            </div>
+          </div>
+          <!-- SEGURIDAD -->
+          <div class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 flex flex-col gap-6">
+            <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-whiteCustom transition-colors">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">shield</span>
+            </div>
+            <div>
+              <h3 class="text-textDark dark:text-whiteCustom text-xl font-bold mb-2">Seguridad</h3>
+              <p class="text-textGray dark:text-whiteCustom/60 leading-relaxed text-justify hyphens-auto">La información está protegida con <strong class="text-textDark dark:text-whiteCustom/90 font-semibold">estándares sólidos de seguridad digital</strong> y procesos pensados para resguardar lo que más importa.</p>
+            </div>
+            <div class="mt-auto flex items-center gap-2 text-primary font-bold text-sm cursor-pointer hover:underline">
+              Saber más <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            </div>
+          </div>
+          <!-- INTELIGENCIA ARTIFICIAL -->
+          <div class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 flex flex-col gap-6">
+            <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-whiteCustom transition-colors">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">psychology</span>
+            </div>
+            <div>
+              <h3 class="text-textDark dark:text-whiteCustom text-xl font-bold mb-2">Inteligencia Artificial</h3>
+              <p class="text-textGray dark:text-whiteCustom/60 leading-relaxed text-justify hyphens-auto">Incorporamos IA para <strong class="text-textDark dark:text-whiteCustom/90 font-semibold">aportar valor real a tu práctica diaria</strong>. Una herramienta que optimiza tu tiempo y mejora tu experiencia de trabajo.</p>
+            </div>
+            <div class="mt-auto flex items-center gap-2 text-primary font-bold text-sm cursor-pointer hover:underline">
+              Saber más <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRECIOS -->
+    <section class="py-24 px-6 bg-containerBg/30 dark:bg-background-dark" id="precios">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Precios Flexibles</span>
+          <h2 class="text-textDark dark:text-whiteCustom text-3xl md:text-5xl font-black mt-4">Planes para cada etapa</h2>
+        </div>
+        <div class="flex justify-center">
+          <div class="w-full max-w-md bg-whiteCustom dark:bg-background-dark border-2 border-primary/20 rounded-3xl p-12 flex flex-col items-center text-center relative overflow-hidden shadow-2xl shadow-primary/10">
+            <div class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary">
+              <span class="material-symbols-outlined text-3xl" aria-hidden="true">schedule</span>
+            </div>
+            <h3 class="text-3xl font-black text-textDark dark:text-whiteCustom mb-3">Próximamente</h3>
+            <p class="text-textGray dark:text-whiteCustom/60 text-sm leading-relaxed">
+              Estamos trabajando en planes accesibles para cada etapa. Pronto podrás elegir la opción que mejor se adapte a tus necesidades.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFRAESTRUCTURA -->
+    <section class="py-24 px-6 overflow-hidden">
+      <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+        <div class="w-full lg:w-1/2">
+          <div class="relative">
+            <div class="absolute -top-10 -left-10 size-40 bg-containerBg rounded-full mix-blend-multiply filter blur-3xl opacity-70" aria-hidden="true"></div>
+            <div class="absolute -bottom-10 -right-10 size-40 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70" aria-hidden="true"></div>
+            <div class="relative aspect-square rounded-[3rem] overflow-hidden border-8 border-whiteCustom shadow-2xl">
+              <img alt="Infraestructura de la plataforma DESSA Tech" class="w-full h-full object-cover" loading="lazy"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1g0-PycHeIsxb8pPwX0KXKOSCXSKz5CnmGT-o4GJNBst_aDH4KB1jXBfGl5aEWljZOdbGYs_CSuI2T-TVRvBbaxorZpaxm65TlFvhm4aS2Zj0Vqzt4q-pVrFggIyZhUSwOtdgEbROFrWqlX8A8ajcuPVaNjLv3vAuNvUGAiQSyjrejBiiQVwm4tV3zsZv3aPaNkt8BD4y2AAvRmEvexVgaz9iwxPSNkOmNdQhUO8v-6xaGEPlaeqSb-UU0CJLaKgLA2TR4qdQXgo"/>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 flex flex-col gap-6">
+          <h2 class="text-textDark dark:text-whiteCustom text-4xl font-black leading-tight">Una plataforma construida con la seguridad y el cuidado que tu práctica merece.</h2>
+          <p class="text-textGray dark:text-whiteCustom/70 text-lg leading-relaxed">
+            Diseñamos cada detalle pensando en la confidencialidad y la confianza. Nuestra infraestructura garantiza que el vínculo entre profesional y consultante sea siempre seguro, privado y disponible.
+          </p>
+          <ul class="flex flex-col gap-4 py-4">
+            <li class="flex items-center gap-4">
+              <div class="size-6 rounded-full bg-primary flex items-center justify-center text-whiteCustom">
+                <span class="material-symbols-outlined text-xs" aria-hidden="true">check</span>
+              </div>
+              <span class="text-textMedium dark:text-whiteCustom/90 font-semibold">Confidencialidad garantizada en cada sesión</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <div class="size-6 rounded-full bg-primary flex items-center justify-center text-whiteCustom">
+                <span class="material-symbols-outlined text-xs" aria-hidden="true">check</span>
+              </div>
+              <span class="text-textMedium dark:text-whiteCustom/90 font-semibold">Disponible en cualquier momento y desde cualquier dispositivo</span>
+            </li>
+            <li class="flex items-center gap-4">
+              <div class="size-6 rounded-full bg-primary flex items-center justify-center text-whiteCustom">
+                <span class="material-symbols-outlined text-xs" aria-hidden="true">check</span>
+              </div>
+              <span class="text-textMedium dark:text-whiteCustom/90 font-semibold">Diseñada por y para profesionales de la salud</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="py-24 px-6 bg-cardBg dark:bg-background-dark/50" id="contacto">
+      <div class="max-w-3xl mx-auto bg-whiteCustom dark:bg-background-dark p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-primary/10">
+        <div class="text-center mb-10">
+          <h2 class="text-3xl font-black text-textDark dark:text-whiteCustom mb-4">Contáctanos</h2>
+          <p class="text-textGray dark:text-whiteCustom/60">¿Querés saber más sobre DESSA? Envianos un mensaje y te contactamos a la brevedad.</p>
+        </div>
+        <form class="space-y-6" novalidate>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-textDark dark:text-whiteCustom ml-1" for="nombre">Nombre</label>
+              <input class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-whiteCustom/20 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="nombre" name="nombre" placeholder="Tu nombre" type="text" autocomplete="given-name"/>
+            </div>
+            <div class="space-y-2">
+              <label class="text-sm font-bold text-textDark dark:text-whiteCustom ml-1" for="email">Email Corporativo</label>
+              <input class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-whiteCustom/20 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="email" name="email" placeholder="nombre@empresa.com" type="email" autocomplete="email"/>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-textDark dark:text-whiteCustom ml-1" for="asunto">Asunto</label>
+            <select class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-whiteCustom/20 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="asunto" name="asunto">
+              <option>Información de Ventas</option>
+              <option>Soporte Técnico</option>
+              <option>Alianzas</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="space-y-2">
+            <label class="text-sm font-bold text-textDark dark:text-whiteCustom ml-1" for="mensaje">Mensaje</label>
+            <textarea class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-whiteCustom/20 bg-transparent focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none" id="mensaje" name="mensaje" placeholder="¿Cómo podemos ayudarte?" rows="4"></textarea>
+          </div>
+          <button class="w-full py-4 bg-primary text-whiteCustom font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 hover:scale-[1.01] transition-all" type="submit">Enviar Mensaje</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-whiteCustom dark:bg-background-dark py-16 px-6 border-t border-primary/10">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12">
+      <div class="col-span-2 flex flex-col gap-6">
+        <div class="flex items-center gap-2">
+          <img alt="DESSA Tech Logo" class="h-10 w-auto object-contain dark:hidden" src="assets/logo-invertido.svg"/>
+          <img alt="DESSA Tech Logo" class="h-10 w-auto object-contain hidden dark:block" src="assets/logo.svg"/>
+        </div>
+        <p class="text-textGray dark:text-whiteCustom/60 max-w-xs">Tecnología y trato humano al servicio de la salud mental.</p>
+        <div class="flex gap-4">
+          <div class="size-10 rounded-xl bg-btnSecondary dark:bg-whiteCustom/10 flex items-center justify-center text-textMedium dark:text-whiteCustom hover:bg-primary hover:text-whiteCustom cursor-pointer transition-all" role="link" aria-label="Sitio web">
+            <span class="material-symbols-outlined" aria-hidden="true">public</span>
+          </div>
+          <div class="size-10 rounded-xl bg-btnSecondary dark:bg-whiteCustom/10 flex items-center justify-center text-textMedium dark:text-whiteCustom hover:bg-primary hover:text-whiteCustom cursor-pointer transition-all" role="link" aria-label="Comunidad">
+            <span class="material-symbols-outlined" aria-hidden="true">group</span>
+          </div>
+          <div class="size-10 rounded-xl bg-btnSecondary dark:bg-whiteCustom/10 flex items-center justify-center text-textMedium dark:text-whiteCustom hover:bg-primary hover:text-whiteCustom cursor-pointer transition-all" role="link" aria-label="Email">
+            <span class="material-symbols-outlined" aria-hidden="true">mail</span>
+          </div>
+        </div>
+      </div>
+      <nav class="flex flex-col gap-4" aria-label="Producto">
+        <h4 class="text-textDark dark:text-whiteCustom font-bold uppercase tracking-widest text-xs">Producto</h4>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Características</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Integraciones</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">App Móvil</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Novedades</a>
+      </nav>
+      <nav class="flex flex-col gap-4" aria-label="Recursos">
+        <h4 class="text-textDark dark:text-whiteCustom font-bold uppercase tracking-widest text-xs">Recursos</h4>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Documentación</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Referencia API</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Comunidad</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Blog</a>
+      </nav>
+      <nav class="flex flex-col gap-4" aria-label="Compañía">
+        <h4 class="text-textDark dark:text-whiteCustom font-bold uppercase tracking-widest text-xs">Compañía</h4>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Sobre Nosotros</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Sostenibilidad</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Carreras</a>
+        <a class="text-textGray dark:text-whiteCustom/60 hover:text-primary transition-colors text-sm" href="#">Privacidad</a>
+      </nav>
+    </div>
+    <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between gap-6 text-sm text-textGray dark:text-whiteCustom/40">
+      <div class="flex items-center gap-2">
+        <img alt="" class="h-6 w-auto object-contain dark:hidden opacity-50" aria-hidden="true" src="assets/isotipo-invertido.svg"/>
+        <img alt="" class="h-6 w-auto object-contain hidden dark:block opacity-70" aria-hidden="true" src="assets/isotipo.svg"/>
+        <p>© 2025 DESSA Tech Technologies Inc. Todos los derechos reservados.</p>
+      </div>
+      <div class="flex gap-8">
+        <a class="hover:text-primary transition-colors" href="#">Términos</a>
+        <a class="hover:text-primary transition-colors" href="#">Privacidad</a>
+        <a class="hover:text-primary transition-colors" href="#">Cookies</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var container = document.getElementById('hero-visual');
+  if (!container) return;
+
+  var NS = 'http://www.w3.org/2000/svg';
+  var ORIG_W = 682.58;
+  var ORIG_H = 855.97;
+  var itemW = 90;
+  var itemH = 113;
+  var xSpacing = 60;
+  var ySpacing = 85;
+  var sc = itemW / ORIG_W;
+  var numCols = 16;
+  var numRows = 12;
+  var color = 'rgba(0,119,107,0.28)';
+  var PATH_D = 'M547.17,203.67a67.72,67.72,0,0,0-135.43,1.16v105a214.12,214.12,0,0,0-79-15c-118.5,0-210,90.26-214.54,214.52C114.28,616.14,205,714.16,301,720.46c36.19,2.37,65.69-29.4,65.69-65.7A65.76,65.76,0,0,0,320,591.88c-48.86-14.81-71.1-44.34-71.1-82.5A83.39,83.39,0,0,1,332.28,426c38.54,0,69.86,23.69,81.94,67.87a67.6,67.6,0,0,0,65.24,49.51c33.38,0,68.57-27.27,67.71-66.57C547.19,476.42,547.19,204.05,547.17,203.67Z';
+
+  var svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'absolute inset-0 w-full h-full block');
+  svg.setAttribute('xmlns', NS);
+
+  var bg = document.createElementNS(NS, 'rect');
+  bg.setAttribute('width', '100%');
+  bg.setAttribute('height', '100%');
+  bg.setAttribute('fill', '#B7CEC1');
+  svg.appendChild(bg);
+
+  var cx = itemW / 2;
+  var cy = itemH / 2;
+
+  for (var c = 0; c < numCols; c++) {
+    for (var r = 0; r < numRows; r++) {
+      var isOdd = c % 2 !== 0;
+      var x = c * xSpacing;
+      var y = r * ySpacing + (isOdd ? ySpacing / 2 : 0) - 50;
+      var rotation = isOdd ? 180 : 0;
+
+      var g = document.createElementNS(NS, 'g');
+      g.setAttribute('transform',
+        'translate(' + x + ',' + y + ') rotate(' + rotation + ',' + cx + ',' + cy + ') scale(' + sc + ')');
+
+      var path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', PATH_D);
+      path.setAttribute('fill', color);
+      g.appendChild(path);
+
+      var circle = document.createElementNS(NS, 'circle');
+      circle.setAttribute('cx', '479.5');
+      circle.setAttribute('cy', '656.32');
+      circle.setAttribute('r', '67.69');
+      circle.setAttribute('fill', color);
+      g.appendChild(circle);
+
+      svg.appendChild(g);
+    }
+  }
+
+  container.appendChild(svg);
+}());
+</script>
+</body>
+</html>

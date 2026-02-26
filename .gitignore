@@ -1,0 +1,12 @@
+# Archivos fuente / entrega original
+css.txt
+html.txt
+wetransfer_dessa-tech_2026-01-21_0830 (1)/
+wetransfer_dessa-tech_2026-01-21_0830 (1).zip
+
+# Vercel (no aplica en GH Pages)
+# vercel.json se puede dejar sin problema, no afecta
+
+# OS
+.DS_Store
+Thumbs.db
