@@ -78,6 +78,30 @@
     body {
       font-family: 'Urbanist', sans-serif;
     }
+    .splash-logo { clip-path: inset(0 75% 0 0); opacity: 0; transform: scale(0.92); animation: splashReveal 2.4s cubic-bezier(0.4,0,0.2,1) forwards; }
+    @keyframes splashReveal {
+      0%   { opacity: 0; transform: scale(0.92); clip-path: inset(0 75% 0 0); }
+      12%  { opacity: 1; transform: scale(1);    clip-path: inset(0 75% 0 0); }
+      32%  { opacity: 1; transform: scale(1);    clip-path: inset(0 75% 0 0); }
+      72%  { opacity: 1; transform: scale(1);    clip-path: inset(0 0%  0 0); }
+      100% { opacity: 1; transform: scale(1);    clip-path: inset(0 0%  0 0); }
+    }
+    .splash-out { animation: splashFadeOut 0.5s ease forwards; }
+    @keyframes splashFadeOut { to { opacity: 0; pointer-events: none; } }
+    [data-reveal] { opacity: 0; transform: translateY(32px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    [data-reveal].is-visible { opacity: 1; transform: translateY(0); }
+    /* Hero animations — se activan cuando body recibe .hero-ready */
+    .hero-title { opacity: 0; transform: translateX(-48px); }
+    body.hero-ready .hero-title { animation: heroSlideLeft 0.9s cubic-bezier(0.22,1,0.36,1) forwards; }
+    @keyframes heroSlideLeft { to { opacity: 1; transform: translateX(0); } }
+    .hero-body  { opacity: 0; }
+    .hero-cta   { opacity: 0; }
+    .hero-social{ opacity: 0; }
+    body.hero-ready .hero-body   { animation: heroFade 0.7s ease forwards 0.35s; }
+    body.hero-ready .hero-cta    { animation: heroFade 0.7s ease forwards 0.6s; }
+    body.hero-ready .hero-social { animation: heroFade 0.7s ease forwards 0.85s; }
+    @keyframes heroFade { to { opacity: 1; } }
+    @keyframes patternReveal { from { opacity: 0; } to { opacity: 1; } }
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
     }
@@ -85,6 +109,12 @@
 </head>
 
 <body class="bg-background-light dark:bg-background-dark text-textDark dark:text-whiteCustom transition-colors duration-300">
+
+<!-- SPLASH -->
+<div id="splash" class="fixed inset-0 z-[200] flex items-center justify-center bg-[#ECEFEF]">
+  <img src="assets/logo-invertido.svg" alt="DESSA Tech" class="splash-logo w-[480px] max-w-[80vw]" draggable="false"/>
+</div>
+
 <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
 
   <!-- HEADER -->
@@ -115,21 +145,21 @@
       <div id="hero-visual" class="absolute inset-y-0 right-0 w-1/2 hidden lg:block" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="relative z-10 flex flex-col gap-8">
-          <h1 class="text-[#2b2b2b] text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tight">
+          <h1 class="hero-title text-[#2b2b2b] text-5xl md:text-7xl font-semibold leading-[1.1] tracking-tight">
             Una nueva generación de gestión clínica.
           </h1>
-          <div class="flex flex-col gap-2">
+          <div class="hero-body flex flex-col gap-2">
             <p class="text-[#2b2b2b] text-lg md:text-xl leading-relaxed max-w-xl text-justify hyphens-auto">DESSA integra administración, seguridad e inteligencia artificial en una plataforma creada para profesionales de la salud mental.
             </p>
             <p class="text-[#2b2b2b] text-lg md:text-xl leading-relaxed max-w-xl text-justify hyphens-auto">El entorno digital que organiza, acompaña y sostiene el trabajo. Pensada para la práctica profesional real.
             </p>
           </div>
-          <div class="flex flex-wrap gap-4 pt-0">
+          <div class="hero-cta flex flex-wrap gap-4 pt-0">
             <a href="#contacto" class="flex h-14 items-center justify-center px-8 bg-primary text-whiteCustom text-lg font-bold rounded-xl shadow-xl shadow-primary/20 hover:bg-primary/90 transition-all">
               Hablar con el Equipo
             </a>
           </div>
-          <div class="flex items-center gap-4 pt-4">
+          <div class="hero-social flex items-center gap-4 pt-4">
             <div class="flex -space-x-3" aria-hidden="true">
               <img alt="" class="size-10 rounded-full border-2 border-containerBg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrIGGhozh8-oY3MJx9yhvTn8YwQrw87cCVgvxICCFHW-AkqtuYMV3NRpudUy_ObZRk4wBiHINWvkixWbzsx-v2SrtAhUUw5K-eFgdSDHzJ2NZNlRGd0rJfjcrK7_1Iv7WBhJjHiWSOOIPzegK7rVN9YBcSaVdn5Od4OahlX_peNG4TC87Y-3pmDWxVDi39aOWecSRL-_GbtMMjGlMufJhGk6EfM2YZ_1UpXK7O4bJOW4S5wf9Of_FNkso5MW9PFv9JK4SZPiA4HW0"/>
               <img alt="" class="size-10 rounded-full border-2 border-containerBg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5X1ePjCiBF-WIhPc6__oPBzFOHKDujesWUcCUImWIXUv8qZwYRpBPsz7OGKwi8dAlaDEook1hE0atyXBu4xOjHG0hpW9TR3rUirvQwleg9HY5DdawNKMTDXb6mu3Y0tqxDvNEm-tAEQ2btqq8G5pH4o039VjthfTKsA26sKUmuxWtJoJRswoTSGoyLJPNmhb2wI3WWOWNZagydVcsYKlgqfp5_k9T7Cqbkc79AJHoO2n6BA-Ua21jvxb2hzCErYXLmV6yY0l0teI"/>
@@ -145,13 +175,13 @@
     <!-- PROPÓSITO -->
     <section class="py-24 px-6 bg-whiteCustom dark:bg-background-dark/50" id="proposito">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-16" data-reveal>
           <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Nuestro Propósito</span>
           <h2 class="text-textDark dark:text-whiteCustom text-3xl md:text-5xl font-black mt-4">Quiénes somos y qué nos mueve</h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- MISIÓN -->
-          <div class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 shadow-lg shadow-black/5">
+          <div data-reveal data-reveal-delay="0" class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 hover:scale-[1.03] shadow-lg shadow-black/5">
             <div class="size-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-whiteCustom transition-colors text-primary">
               <span class="material-symbols-outlined text-3xl" aria-hidden="true">rocket_launch</span>
             </div>
@@ -161,7 +191,7 @@
             </p>
           </div>
           <!-- VISIÓN -->
-          <div class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 shadow-lg shadow-black/5">
+          <div data-reveal data-reveal-delay="120" class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 hover:scale-[1.03] shadow-lg shadow-black/5">
             <div class="size-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-whiteCustom transition-colors text-primary">
               <span class="material-symbols-outlined text-3xl" aria-hidden="true">visibility</span>
             </div>
@@ -171,7 +201,7 @@
             </p>
           </div>
           <!-- VALORES -->
-          <div class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 shadow-lg shadow-black/5">
+          <div data-reveal data-reveal-delay="240" class="bg-cardBg dark:bg-background-dark p-10 rounded-3xl border border-primary/10 hover:border-primary/40 transition-all group hover:-translate-y-1 hover:scale-[1.03] shadow-lg shadow-black/5">
             <div class="size-14 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-whiteCustom transition-colors text-primary">
               <span class="material-symbols-outlined text-3xl" aria-hidden="true">favorite</span>
             </div>
@@ -210,14 +240,14 @@
     <!-- CAPACIDADES / SOLUCIONES -->
     <section class="py-24 px-6 bg-containerBg dark:bg-background-dark" id="soluciones">
       <div class="max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-20 flex flex-col gap-4">
+        <div class="text-center max-w-3xl mx-auto mb-20 flex flex-col gap-4" data-reveal>
           <span class="text-primary font-bold tracking-[0.2em] uppercase text-sm">Capacidades</span>
           <h2 class="text-textDark dark:text-whiteCustom text-4xl md:text-5xl font-black tracking-tight">Todo lo que necesitás en una sola plataforma</h2>
           <p class="text-textGray dark:text-whiteCustom/70 text-lg">Diseñada para psicólogos y consultantes, DESSA centraliza tu práctica con herramientas pensadas para el bienestar.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- FUNCIONALIDAD -->
-          <div class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 flex flex-col gap-6">
+          <div data-reveal data-reveal-delay="0" class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 hover:scale-[1.03] flex flex-col gap-6">
             <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-whiteCustom transition-colors">
               <span class="material-symbols-outlined text-3xl" aria-hidden="true">apps</span>
             </div>
@@ -230,7 +260,7 @@
             </div>
           </div>
           <!-- SEGURIDAD -->
-          <div class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 flex flex-col gap-6">
+          <div data-reveal data-reveal-delay="120" class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 hover:scale-[1.03] flex flex-col gap-6">
             <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-whiteCustom transition-colors">
               <span class="material-symbols-outlined text-3xl" aria-hidden="true">shield</span>
             </div>
@@ -243,7 +273,7 @@
             </div>
           </div>
           <!-- INTELIGENCIA ARTIFICIAL -->
-          <div class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 flex flex-col gap-6">
+          <div data-reveal data-reveal-delay="240" class="group bg-cardBg dark:bg-whiteCustom/5 p-8 rounded-3xl border border-transparent hover:border-primary/20 transition-all hover:shadow-2xl hover:shadow-primary/5 hover:scale-[1.03] flex flex-col gap-6">
             <div class="size-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-whiteCustom transition-colors">
               <span class="material-symbols-outlined text-3xl" aria-hidden="true">psychology</span>
             </div>
@@ -267,7 +297,7 @@
           <h2 class="text-textDark dark:text-whiteCustom text-3xl md:text-5xl font-black mt-4">Planes para cada etapa</h2>
         </div>
         <div class="flex justify-center">
-          <div class="w-full max-w-md bg-whiteCustom dark:bg-background-dark border-2 border-primary/20 rounded-3xl p-12 flex flex-col items-center text-center relative overflow-hidden shadow-2xl shadow-primary/10">
+          <div data-reveal class="w-full max-w-md bg-whiteCustom dark:bg-background-dark border-2 border-primary/20 rounded-3xl p-12 flex flex-col items-center text-center relative overflow-hidden shadow-2xl shadow-primary/10 transition-all hover:scale-[1.03]">
             <div class="size-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 text-primary">
               <span class="material-symbols-outlined text-3xl" aria-hidden="true">schedule</span>
             </div>
@@ -283,7 +313,7 @@
     <!-- INFRAESTRUCTURA -->
     <section class="py-24 px-6 overflow-hidden">
       <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
-        <div class="w-full lg:w-1/2">
+        <div data-reveal data-reveal-delay="0" class="w-full lg:w-1/2">
           <div class="relative">
             <div class="absolute -top-10 -left-10 size-40 bg-containerBg rounded-full mix-blend-multiply filter blur-3xl opacity-70" aria-hidden="true"></div>
             <div class="absolute -bottom-10 -right-10 size-40 bg-primary/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70" aria-hidden="true"></div>
@@ -293,7 +323,7 @@
             </div>
           </div>
         </div>
-        <div class="w-full lg:w-1/2 flex flex-col gap-6">
+        <div data-reveal data-reveal-delay="150" class="w-full lg:w-1/2 flex flex-col gap-6">
           <h2 class="text-textDark dark:text-whiteCustom text-4xl font-black leading-tight">Una plataforma construida con la seguridad y el cuidado que tu práctica merece.</h2>
           <p class="text-textGray dark:text-whiteCustom/70 text-lg leading-relaxed">
             Diseñamos cada detalle pensando en la confidencialidad y la confianza. Nuestra infraestructura garantiza que el vínculo entre profesional y consultante sea siempre seguro, privado y disponible.
@@ -324,7 +354,7 @@
 
     <!-- CONTACTO -->
     <section class="py-24 px-6 bg-cardBg dark:bg-background-dark/50" id="contacto">
-      <div class="max-w-3xl mx-auto bg-whiteCustom dark:bg-background-dark p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-primary/10">
+      <div data-reveal class="max-w-3xl mx-auto bg-whiteCustom dark:bg-background-dark p-8 md:p-12 rounded-[2.5rem] shadow-xl border border-primary/10">
         <div class="text-center mb-10">
           <h2 class="text-3xl font-black text-textDark dark:text-whiteCustom mb-4">Contáctanos</h2>
           <p class="text-textGray dark:text-whiteCustom/60">¿Querés saber más sobre DESSA? Envianos un mensaje y te contactamos a la brevedad.</p>
@@ -457,6 +487,12 @@
       var y = r * ySpacing + (isOdd ? ySpacing / 2 : 0) - 50;
       var rotation = isOdd ? 180 : 0;
 
+      var outer = document.createElementNS(NS, 'g');
+      var splashOffset = 2.9;
+      var colDelay = splashOffset + (c / numCols) * 0.8;
+      outer.style.opacity = '0';
+      outer.style.animation = 'patternReveal 0.4s ease forwards ' + colDelay.toFixed(3) + 's';
+
       var g = document.createElementNS(NS, 'g');
       g.setAttribute('transform',
         'translate(' + x + ',' + y + ') rotate(' + rotation + ',' + cx + ',' + cy + ') scale(' + sc + ')');
@@ -473,11 +509,41 @@
       circle.setAttribute('fill', color);
       g.appendChild(circle);
 
-      svg.appendChild(g);
+      outer.appendChild(g);
+      svg.appendChild(outer);
     }
   }
 
   container.appendChild(svg);
+  var splash = document.getElementById('splash');
+  if (splash) {
+    setTimeout(function () {
+      splash.classList.add('splash-out');
+      setTimeout(function () {
+        splash.remove();
+        document.body.classList.add('hero-ready');
+      }, 520);
+    }, 2400);
+  }
+
+  // Scroll reveal
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          var delay = entry.target.getAttribute('data-reveal-delay') || 0;
+          setTimeout(function () {
+            entry.target.classList.add('is-visible');
+          }, Number(delay));
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
 }());
 </script>
 </body>
